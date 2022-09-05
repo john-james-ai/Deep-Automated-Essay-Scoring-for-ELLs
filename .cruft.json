@@ -1,0 +1,18 @@
+{
+  "template": "https://github.com/woltapp/wolt-python-package-cookiecutter",
+  "commit": "6669a067eeaaed3bee84312428a3e94cd13295f2",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "author_name": "John James",
+      "author_email": "john.james.ai.studio@gmail.com",
+      "github_username": "john-james-ai",
+      "project_name": "English Language Learning",
+      "project_slug": "english-language-learning",
+      "package_name": "english_language_learning",
+      "project_short_description": "Assess English Language Proficiency ",
+      "_template": "https://github.com/woltapp/wolt-python-package-cookiecutter"
+    }
+  },
+  "directory": null
+}
