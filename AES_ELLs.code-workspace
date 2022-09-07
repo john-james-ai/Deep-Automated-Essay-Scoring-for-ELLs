@@ -1,0 +1,31 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+    ],
+    "settings": {
+        "psi-header.variables": [
+            [
+                "projectCreationYear",
+                "2022"
+            ],
+            [
+                "url",
+                "https://github.com/john-james-ai/Deep-Automated-Essay-Scoring-for-ELLs"
+            ],
+            [
+                "projectname",
+                "Deep Automated Essay Scoring for ELLs"
+            ],
+            [
+                "version",
+                "0.1.0"
+            ],
+            [
+                "pythonversion",
+                "3.10.4"
+            ]
+        ]
+    }
+}

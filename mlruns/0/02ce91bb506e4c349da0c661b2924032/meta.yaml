@@ -1,0 +1,15 @@
+artifact_uri: file:///home/john/projects/AES_ELLs/mlruns/0/02ce91bb506e4c349da0c661b2924032/artifacts
+end_time: 1662435378733
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+name: ''
+run_id: 02ce91bb506e4c349da0c661b2924032
+run_uuid: 02ce91bb506e4c349da0c661b2924032
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1662435376834
+status: 3
+tags: []
+user_id: john

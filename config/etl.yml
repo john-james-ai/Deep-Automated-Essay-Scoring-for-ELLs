@@ -1,0 +1,80 @@
+#!/usr/bin/env python3
+# -*- coding:utf-8 -*-
+# ================================================================================================ #
+# Project    : Deep Automated Essay Scoring for ELLs                                               #
+# Version    : 0.1.0                                                                               #
+# Python     : 3.10.4                                                                              #
+# Filename   : /etl.yml                                                                            #
+# ------------------------------------------------------------------------------------------------ #
+# Author     : John James                                                                          #
+# Email      : john.james.ai.studio@gmail.com                                                      #
+# URL        : https://github.com/john-james-ai/Deep-Automated-Essay-Scoring-for-ELLs              #
+# ------------------------------------------------------------------------------------------------ #
+# Created    : Monday September 5th 2022 09:04:07 pm                                               #
+# Modified   : Tuesday September 6th 2022 05:43:59 pm                                              #
+# ------------------------------------------------------------------------------------------------ #
+# License    : MIT License                                                                         #
+# Copyright  : (c) 2022 John James                                                                 #
+# ================================================================================================ #
+---
+name: etl
+steps:
+    1:  # Downloads the data from the kaggle website into the external data directory
+        name: data_download_api
+        module: atelier.workflow.operators
+        operator: KaggleDownloader
+        params:
+            competition: feedback-prize-english-language-learning
+            destination: data/external
+            filename: feedback-prize-english-language-learning.zip
+            force: False
+    2:  # Decompresses the zip file
+        name: data_extract_zip
+        module: atelier.workflow.operators
+        operator: ExtractZip
+        params:
+            source: data/external/feedback-prize-english-language-learning.zip
+            destination: data/external
+            force: False
+    3:  # Loads the test data and performs utf-8 encoding
+        name: load_test_data_csv
+        module: atelier.workflow.operators
+        operator: LoadCSV
+        params:
+            filepath: data/external/test.csv
+            encoding: utf-8
+            encoding_errors: strict
+            force: False
+    4:  # Saves the test data in the raw directory
+        name: save_test_data_csv
+        module: atelier.workflow.operators
+        operator: SaveCSV
+        params:
+            filepath: data/raw/test.csv
+            force: False
+    5:  # Loads the training data and performs utf-8 encoding
+        name: load_train_data_csv
+        module: atelier.workflow.operators
+        operator: LoadCSV
+        params:
+            filepath: data/external/train.csv
+            encoding: utf-8
+            encoding_errors: strict
+            force: False
+    6:  # Saves the training data in the raw directory
+        name: save_train_data_csv
+        module: atelier.workflow.operators
+        operator: SaveCSV
+        params:
+            filepath: data/raw/train.csv
+            force: False
+    7:  # Extracts the training data into single files per essay and stores in the essays directory
+        name: load_essays
+        module: aes.data.load
+        operator: LoadEssays
+        params:
+            id_col: text_id
+            text_col: full_text
+            destination: data/essays/
+            force: False
+...

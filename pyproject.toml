@@ -1,16 +1,16 @@
 [tool.poetry]
 name = "english-language-learning"
 version = "0.0.1"
-description = "Assess English Language Proficiency "
+description = "Deep Automated Essay Scoring for ELLs"
 authors = [
     "John James <john.james.ai.studio@gmail.com>",
 ]
 license = "MIT"
 readme = "README.md"
 
-documentation = "https://john-james-ai.github.io/english-language-learning"
-homepage = "https://john-james-ai.github.io/english-language-learning"
-repository = "https://github.com/john-james-ai/english-language-learning"
+documentation = "https://john-james-ai.github.io/Deep-Automated-Essay-Scoring-for-ELLs"
+homepage = "https://john-james-ai.github.io/Deep-Automated-Essay-Scoring-for-ELLs"
+repository = "https://github.com/john-james-ai/Deep-Automated-Essay-Scoring-for-ELLs"
 
 classifiers = [
   "Development Status :: 4 - Beta",
@@ -70,11 +70,15 @@ include = '\.pyi?$'
 
 [tool.pytest.ini_options]
 addopts = """\
-    --cov english_language_learning \
-    --cov tests \
+    --cov aes \
     --cov-report term-missing \
     --no-cov-on-fail \
 """
+filterwarnings = [
+    "ignore::UserWarning",
+    # note the use of single quote below to denote "raw" strings in TOML
+    'ignore:function ham\(\) is deprecated:DeprecationWarning',
+]
 
 [tool.coverage.report]
 fail_under = 100
